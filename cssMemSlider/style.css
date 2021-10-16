@@ -10,19 +10,21 @@ body{
 }
 
 .wrapper{
+	display: flex;
+	flex-direction: column;
+	row-gap: 20px;
 	position: relative;
-	width: 80vw;
+	width: 60vw;
 	height: 40vw;
 	margin: 10vh auto 0 auto;
-	background-color:grey;
+	/* background-color:grey; */
 
 }
 .slider {
 	display: flex;
-
 	background-color: #ddd;
 	width: 100%;
-	height: 100%;
+	height: 80%;
 	overflow: hidden;
 	box-shadow: 0 0 20px rgba(0, 0, 0, .5);
 }
@@ -31,12 +33,14 @@ body{
 }
 
 .slides {
+	opacity: 0;
 	width: 100%;
-	height: 80%;
+	height: 100%;
 	flex: 0 0 100%;
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size:contain;
+	transition: all .5s;
 }
 .slide1 {
 	background-image: url(./assets/images/JS_vacination.jpg);
@@ -53,3 +57,105 @@ body{
 .slide5 {
 	background-image: url(./assets/images/volodia.jpg);
 }
+
+.controls{
+	align-self: end;
+	width: 11vw;
+	height: auto;
+	display: flex;
+	justify-content: space-between;
+
+}
+.controls label {
+	display: block;
+	height: 14px;
+	width: 14px;
+	position: relative;
+	border-radius: 50%;
+	border: 2px solid rgb(10, 9, 9);
+	transition: all .5s;
+}
+
+.controls label:after {
+	position: absolute;
+	content: " ";
+	display: block;
+	cursor: pointer;
+	height: 25px;
+	width: 25px;
+	top: -8px;
+	left: -8px;
+	border-radius: 50%;
+}
+
+.controls label:hover, 
+#slide1:checked ~ .controls .label1,
+#slide2:checked ~ .controls .label2,
+#slide3:checked ~ .controls .label3,
+#slide4:checked ~ .controls .label4,
+#slide5:checked ~ .controls .label5{
+	background: black;
+}
+
+#slide1:checked ~ .slider > .slide1 {
+	transform: translateX(0%);
+	opacity: 1;
+}
+
+#slide2:checked ~ .slider > .slide2 {
+	transform: translateX(-100%);
+	opacity: 1;
+}
+
+#slide3:checked ~ .slider > .slide3 {
+	transform: translateX(-200%);
+	opacity: 1;
+}
+
+#slide4:checked ~ .slider > .slide4 {
+	transform: translateX(-300%);
+	opacity: 1;
+}
+#slide5:checked ~ .slider > .slide5 {
+	transform: translateX(-400%);
+	opacity: 1;
+}
+
+.comments{
+	display: flex;
+	flex-direction: row-reverse;
+	
+}
+.comments p{
+	flex: 0 0 100%;
+	opacity: 0;
+	transition: all 1s;
+}
+
+#slide1:checked ~ .comments > .comment1 {
+	transform: translateX(0);
+	opacity: 1;
+}
+
+#slide2:checked ~ .comments > .comment2 {
+	transform: translateX(100%);
+	opacity: 1;
+}
+
+#slide3:checked ~ .comments > .comment3 {
+	transform: translateX(200%);
+	opacity: 1;
+}
+
+#slide4:checked ~ .comments > .comment4 {
+	transform: translateX(300%);
+	opacity: 1;
+}
+#slide5:checked ~ .comments > .comment5 {
+	transform: translateX(400%);
+	opacity: 1;
+}
+
+
+
+
