@@ -40,7 +40,6 @@ body{
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: 100% 100%;
-	/* background-size: contain; */
 	transition: all .5s linear;
 }
 .slide1 {
@@ -127,19 +126,18 @@ body{
 .panel__wrap{
 	display: flex;
 	justify-content: space-between;
-	/* flex-wrap: wrap; */
 }
 .comments{
 	display: flex;
 	flex-direction: row-reverse;
-	
 }
 .comments p{
 	opacity: 0;
 	flex: 0 0 100%;
 	font-family: 'Pacifico', cursive;
 	font-weight: 400;
-	font-size: 28px;
+	font-size: 1.5rem;
+	line-height: 2rem;
 	letter-spacing: 1px;
 	transition: all 0.5s linear;
 	color: rgb(238, 194, 0, 0.8);
@@ -171,6 +169,56 @@ body{
 }
 
 
+@media screen and (max-width:1440px) {
+	.wrapper{
+		width: 70vw;
+		height: 50vw;
+	}
+	.panel__wrap{
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		row-gap: 30px;
+	}
+	.controls{
+		order: 0;
+		width: 25%;
+	}
+	.comments{
+		order: 1;
+		max-width: 100%;
+	}
+	.comments p{
+		text-align: start;
+	}
+}
+@media screen and (max-width:1024px) {
+	.wrapper{
+		width: 80vw;
+    	height: 60vw;
+	}
+}
 
+@media screen and (max-width:640px) {
+	.wrapper{
+		margin: 3vh auto 0 auto;
+		width: 85vw;
+		height: 65vw;
+	}
+	.comments p{
+		font-size: 1rem;
+		line-height: 1.5rem;
+	}
+}
+
+@media screen and (max-width: 420px) {
+	.wrapper{
+		width: 95vw;
+    	height: 100vw;
+	}
+	.controls{
+		width: 40%;
+	}
+}
 
 
